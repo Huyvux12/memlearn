@@ -1,0 +1,13 @@
+Run A,Run B,Jaccard top-32 binding heads,Random-set Jaccard
+Qwen3-4B|codes|book_first,Qwen3-4B|codes|rule_first,0.6410256410256411,0.022825459852362208
+Qwen3-4B|codes|book_first,Qwen3-4B|nl|book_first,0.6410256410256411,0.02147370474844594
+Qwen3-4B|codes|book_first,Qwen3-4B|nl|rule_first,0.4883720930232558,0.021095794914870104
+Qwen3-4B|codes|rule_first,Qwen3-4B|nl|book_first,0.6842105263157895,0.020617976291132812
+Qwen3-4B|codes|rule_first,Qwen3-4B|nl|rule_first,0.6410256410256411,0.02140424769622906
+Qwen3-4B|nl|book_first,Qwen3-4B|nl|rule_first,0.6842105263157895,0.02170363073871099
+Qwen3-8B|codes|book_first,Qwen3-8B|codes|rule_first,0.6410256410256411,0.019951551685062508
+Qwen3-8B|codes|book_first,Qwen3-8B|nl|book_first,0.6410256410256411,0.022067750744011516
+Qwen3-8B|codes|book_first,Qwen3-8B|nl|rule_first,0.5609756097560976,0.02115941735536426
+Qwen3-8B|codes|rule_first,Qwen3-8B|nl|book_first,0.7297297297297297,0.022624667971859396
+Qwen3-8B|codes|rule_first,Qwen3-8B|nl|rule_first,0.7297297297297297,0.020931596121938144
+Qwen3-8B|nl|book_first,Qwen3-8B|nl|rule_first,0.6410256410256411,0.022712215107355393

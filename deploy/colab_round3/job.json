@@ -1,0 +1,645 @@
+{
+ "name": "round3",
+ "parallel": 8,
+ "budget_seconds": 1800,
+ "models": [
+  "Qwen/Qwen3-8B",
+  "Qwen/Qwen3-4B-Instruct-2507",
+  "Qwen/Qwen3-1.7B",
+  "Qwen/Qwen2.5-3B-Instruct",
+  "microsoft/Phi-3.5-mini-instruct"
+ ],
+ "stages": [
+  {
+   "label": "e4_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {}
+  },
+  {
+   "label": "e4_phi35_mini",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct"
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_1p7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen3_1p7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen25_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen25_3b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen3_1p7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen25_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "q8b_probe",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "q8b_mech",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "q1l_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 7,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 7,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "q1l_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 11,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 11,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "lr1e3_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 17,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "lr1e3_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 29,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "lr1e3_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 43,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "lr1e3_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "lr1e3_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "filler_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 31,
+    "conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "filler",
+      "none",
+      "book_first"
+     ],
+     [
+      "filler",
+      "q",
+      "book_first"
+     ]
+    ],
+    "allow_any_arch": true
+   }
+  }
+ ],
+ "plan": "docs/ROUND3_PLAN.md"
+}

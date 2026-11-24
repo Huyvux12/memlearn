@@ -1,0 +1,28 @@
+| Setting | Contrast | Leak-rate difference [CI95] |
+|:---|---:|---:|
+| Qwen3-4B, 4 layers, lr 5e-4, train bf | Separable - Vector pair | +0.004 [+0.000,+0.013] |
+| Qwen3-4B, 4 layers, lr 5e-4, train bf | Separable - LoRA-qkvo | -0.002 [-0.023,+0.019] |
+| Qwen3-4B, 4 layers, lr 5e-4, train bf | Vector pair - LoRA-qkvo | -0.006 [-0.025,+0.013] |
+| Qwen3-4B, 4 layers, lr 1e-3, train bf | Separable - Vector pair | -0.002 [-0.023,+0.017] |
+| Qwen3-4B, 4 layers, lr 1e-3, train bf | Separable - LoRA-qkvo | +0.010 [-0.006,+0.027] |
+| Qwen3-4B, 4 layers, lr 1e-3, train bf | Vector pair - LoRA-qkvo | +0.013 [-0.006,+0.035] |
+| Qwen3-4B, 4 layers, lr 2e-3, train bf | Separable - Vector pair | +0.019 [-0.013,+0.052] |
+| Qwen3-4B, 4 layers, lr 2e-3, train bf | Separable - LoRA-qkvo | -0.073 [-0.117,-0.033] |
+| Qwen3-4B, 4 layers, lr 2e-3, train bf | Vector pair - LoRA-qkvo | -0.092 [-0.142,-0.046] |
+| Qwen3-4B, 4 layers, lr 5e-4, train bf+rf | Separable - Vector pair | +0.006 [-0.004,+0.019] |
+| Qwen3-4B, 4 layers, lr 5e-4, train bf+rf | Separable - LoRA-qkvo | -0.098 [-0.142,-0.058] |
+| Qwen3-4B, 4 layers, lr 5e-4, train bf+rf | Vector pair - LoRA-qkvo | -0.104 [-0.148,-0.065] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Query - Separable | +0.004 [-0.033,+0.044] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Query - Vector pair | -0.029 [-0.067,+0.010] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Query - LoRA-v | -0.033 [-0.079,+0.013] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Separable - Vector pair | -0.033 [-0.060,-0.008] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Separable - LoRA-v | -0.037 [-0.075,-0.002] |
+| Qwen3-4B, 1 layer, lr 2e-3, train bf | Vector pair - LoRA-v | -0.004 [-0.048,+0.040] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Query - Separable | +0.006 [-0.002,+0.015] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Query - Vector pair | +0.004 [-0.004,+0.013] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Query - LoRA-qkvo | +0.019 [+0.002,+0.035] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Separable - Vector pair | -0.002 [-0.010,+0.004] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Separable - LoRA-qkvo | +0.013 [-0.002,+0.029] |
+| Phi-3.5-mini, 4 layers, lr 5e-4, train bf | Vector pair - LoRA-qkvo | +0.015 [-0.004,+0.033] |
+
+Paired by item within seed; bootstrap over seed x bundle clusters.

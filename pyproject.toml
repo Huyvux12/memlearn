@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "memlearn-attention-lab"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "Controlled internal-attention experiments on frozen Qwen3"
+[tool.setuptools.packages.find]
+include = ["memlearn_attention*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

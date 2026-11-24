@@ -1,0 +1,9 @@
+# Locked interpretation plan
+
+Primary pilot contrast: VECTOR_PAIR minus QUERY in bundle-level JSS, separately ID and cue-OOD. Primary reference: FULL. READ and APPLY retention and MIXED joint are mandatory companion panels; NONAPPLY-only success cannot establish the claim. FULL vs matched fillers on NONAPPLY estimates the influence of the provided rule content, not a general memory mechanism. Prompt and deletion controls do not share all information requirements on other modes.
+
+Use common test bundles/seeds, no conditioning evaluation on a method's own success cohort. Paired contrasts use only common completed requests; JSS contrasts require each method's complete READ/APPLY/NONAPPLY triple. Cluster bootstrap resamples split/bundle blocks and keeps their tested seeds/repeats together. Seed variation is reported separately. Pilot intervals are exploratory, conditional on the tested seeds, without multiplicity-adjusted confirmatory significance claims. No threshold is changed after looking at a test result.
+
+Zero target errors in FULL is a valid floor observation, not grounds to weaken the contract until FULL fails. No improvement is a valid negative result in this setting. Missing methods and budget-interrupted generations are not scored failures. A request reaching its prespecified max-new-token limit is a measured failure when its output is wrong, with truncation reported separately.
+
+Full research adds nested/capacity controls and multiple seeds. It still does not, alone, establish a new native circuit, cross-model generality, external-benchmark performance or a publication-level result. Those claims require their own independently specified experiments. The package makes no assertion that training an additive adapter proves the pretrained model used its V pathway as the failure mechanism.

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "date": "2026-11-17",
+  "new_gpu_runs": 0,
+  "checks": [
+    "Table 1: all 13 frozen model rows match the source tables",
+    "Table 2: original receiver accuracies and paired K-minus-V intervals match",
+    "Table 3: query-head accuracy, controls and recovery fractions match",
+    "Table 4: all nine adaptation rows match five-seed results",
+    "Table A2: all six fresh receiver results and paired intervals match",
+    "Narrative counts: 11/13 resolved READ-APPLY gaps; 13/13 resolved codes order gaps",
+    "Sender sanity: only one of the four original codes models meets the 0.10 guard",
+    "All 17 citations resolve; both manuscript figures exist; no unresolved placeholders",
+    "PDF has searchable text, complete end matter and no empty pages or replacement glyphs"
+  ],
+  "pdf_pages": 13,
+  "manuscript_sha256": "afc3c16a999d1d5281fc28050924fff56f1c26183d7e5bbcd33e578c48b4a74c",
+  "pdf_sha256": "20afd9e2d7dcdf8c2d16b04237d72e864ffd5c685ec8f2334eaf731dae20c6d1",
+  "sender_sanity_deficits": {
+    "codes_qwen3_4b": 0.0625,
+    "codes_qwen3_8b": 0.125,
+    "codes_phi35_mini": 0.14583333333333326,
+    "codes_mistral_7b": 0.10416666666666663
+  },
+  "source_tables": 36
+}

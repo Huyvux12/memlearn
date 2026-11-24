@@ -1,0 +1,35 @@
+# Allowlist: nothing is tracked unless listed here (secrets, raw receipts and internal notes stay local).
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/requirements.txt
+!/pyproject.toml
+!/memlearn_attention/
+!/tests/
+!/tools/
+!/configs/
+!/docs/
+!/paper/
+!/output/
+/output/*
+!/output/pdf/
+!/deploy/
+/deploy/*
+!/deploy/reproduce_all/
+!/deploy/colab_round3/
+!/deploy/colab_round4/
+!/deploy/colab_round5/
+!/deploy/colab_round6/
+/deploy/*/*
+!/deploy/*/job.json
+# Never, at any level
+.env
+.env.*
+.release_forbidden
+release/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.zip
+*.bin

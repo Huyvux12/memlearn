@@ -1,0 +1,2243 @@
+{
+ "name": "reproduce_all",
+ "parallel": 8,
+ "budget_seconds": 2400,
+ "stages": [
+  {
+   "label": "probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5",
+     "M6"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_qwen3_1p7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_qwen3_1p7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_qwen25_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_qwen25_3b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e2_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_e2",
+   "overrides": {}
+  },
+  {
+   "label": "full",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "FULL"
+    ]
+   }
+  },
+  {
+   "label": "bf_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 17,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 17,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 17,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "lr1e3_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 17,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "q1l_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 17,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s17",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 17,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 29,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 29,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 29,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "lr1e3_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 29,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "q1l_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 29,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s29",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 29,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 43,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 43,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 43,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "lr1e3_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 43,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "q1l_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 43,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s43",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 43,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "lr1e3_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 7,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "q1l_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 7,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s7",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 7,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "bf_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.0005
+   }
+  },
+  {
+   "label": "both_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.0005,
+    "train_conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "none",
+      "rule_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "rule_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "rule_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "rule_first"
+     ]
+    ]
+   }
+  },
+  {
+   "label": "bfhi_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.002
+   }
+  },
+  {
+   "label": "lr1e3_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "methods": [
+     "LORA_QKVO",
+     "SEPARABLE",
+     "VECTOR_PAIR"
+    ],
+    "layers": [
+     6,
+     12,
+     18,
+     24
+    ],
+    "seed": 11,
+    "lr": 0.001
+   }
+  },
+  {
+   "label": "q1l_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "seed": 11,
+    "layers": "middle",
+    "lr": 0.002,
+    "chunk": 16,
+    "methods": [
+     "QUERY",
+     "SEPARABLE",
+     "VECTOR_PAIR",
+     "LORA_V"
+    ]
+   }
+  },
+  {
+   "label": "phi_s11",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "lr": 0.0005,
+    "chunk": 64,
+    "seed": 11,
+    "methods": [
+     "VECTOR_PAIR",
+     "QUERY",
+     "SEPARABLE",
+     "LORA_QKVO"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "phi_full",
+   "module": "memlearn_attention.screen_v2",
+   "preset": "screen_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 23,
+    "layers": [
+     5,
+     11,
+     16,
+     21
+    ],
+    "methods": [
+     "FULL"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {}
+  },
+  {
+   "label": "e4_phi35_mini",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct"
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_1p7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen3_1p7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen3_1p7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-1.7B",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen25_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_qwen25_3b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_qwen25_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen2.5-3B-Instruct",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "gen_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "generate_every": 4,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "q8b_probe",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "q8b_mech",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "filler_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "data_seed": 31,
+    "conditions": [
+     [
+      "neutral",
+      "none",
+      "book_first"
+     ],
+     [
+      "neutral",
+      "q",
+      "book_first"
+     ],
+     [
+      "default",
+      "none",
+      "book_first"
+     ],
+     [
+      "default",
+      "q",
+      "book_first"
+     ],
+     [
+      "filler",
+      "none",
+      "book_first"
+     ],
+     [
+      "filler",
+      "q",
+      "book_first"
+     ]
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_phi35_mini",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_bf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "order": "book_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_rf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "order": "rule_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_codes_rf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "codes",
+    "order": "rule_first",
+    "data_seed": 17,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_bf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "order": "book_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_rf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "order": "rule_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_codes_rf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "codes",
+    "order": "rule_first",
+    "data_seed": 17,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_qwen3_14b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_qwen3_14b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_14b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_qwen3_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_qwen3_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_qwen3_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_qwen3_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "path_codes_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_codes_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_codes_mistral_7b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "style": "codes",
+    "path_layer": 14,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_codes_phi35_mini",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "codes",
+    "path_layer": 12,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_codes_gemma2_9b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 34
+  },
+  {
+   "label": "path_nl_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_nl_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_shelf_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_shelf_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "probe_gemma2_2b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "probe_gemma2_9b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "mech_gemma2_2b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "mech_gemma2_9b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "nl_probe_gemma2_2b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "nl_probe_gemma2_9b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "e4c_gemma2_9b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 34
+  },
+  {
+   "label": "probe_mistral_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "mech_mistral_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "nl_probe_mistral_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "e4c_mistral_7b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "allow_any_arch": true
+   },
+   "vram_gb": 28
+  },
+  {
+   "label": "heads_codes_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "codes",
+    "path_layer": 16,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 24
+  },
+  {
+   "label": "heads_codes_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "codes",
+    "path_layer": 16,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "heads_codes_mistral_7b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "style": "codes",
+    "path_layer": 14,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 24
+  },
+  {
+   "label": "heads_codes_phi35_mini",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "codes",
+    "path_layer": 12,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "heads_codes_gemma2_9b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "style": "codes",
+    "path_layer": 16,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 30
+  },
+  {
+   "label": "heads_nl_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "path_layer": 16,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "heads_codes_llama31_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "style": "codes",
+    "path_layer": 14,
+    "data_seed": 61,
+    "head_seed": 73,
+    "parts": [
+     "receiver",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 24
+  },
+  {
+   "label": "probe_llama32_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.2-3B-Instruct",
+    "allow_any_arch": true
+   },
+   "vram_gb": 12
+  },
+  {
+   "label": "path_codes_llama31_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "style": "codes",
+    "path_layer": 14,
+    "parts": [
+     "sender",
+     "receiver",
+     "route",
+     "heads"
+    ],
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "mech_llama32_3b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.2-3B-Instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   },
+   "vram_gb": 12
+  },
+  {
+   "label": "probe_llama31_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "nl_probe_llama32_3b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.2-3B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   },
+   "vram_gb": 12
+  },
+  {
+   "label": "mech_llama31_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "nl_probe_llama31_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "e4c_llama31_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "unsloth/Llama-3.1-8B-Instruct",
+    "allow_any_arch": true
+   },
+   "vram_gb": 28
+  }
+ ],
+ "models": [
+  "Qwen/Qwen2.5-3B-Instruct",
+  "Qwen/Qwen3-1.7B",
+  "Qwen/Qwen3-14B",
+  "Qwen/Qwen3-4B-Instruct-2507",
+  "Qwen/Qwen3-8B",
+  "allenai/OLMo-2-1124-7B-Instruct",
+  "google/gemma-2-2b-it",
+  "google/gemma-2-9b-it",
+  "ibm-granite/granite-3.3-8b-instruct",
+  "microsoft/Phi-3.5-mini-instruct",
+  "mistralai/Mistral-7B-Instruct-v0.3",
+  "unsloth/Llama-3.1-8B-Instruct",
+  "unsloth/Llama-3.2-3B-Instruct"
+ ],
+ "note": "131 stages; about 4.5 h on one 96GB GPU with parallel=8 (lower parallel on smaller GPUs: ~10GB VRAM per stage, ~20GB for 8B-9B). Gemma-2 is gated: accept its license on Hugging Face and export HF_TOKEN before running."
+}

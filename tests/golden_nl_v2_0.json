@@ -1,0 +1,800 @@
+[
+{
+"i": 0,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 443\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 337\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 262\nREQUEST: Apply P to the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 691\nREQUEST: Apply Q to the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 746\nREQUEST: Return the assigned room without applying P."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nSTAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nBADGE: 443\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nSTAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nBADGE: 337\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nSTAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nBADGE: 262\nREQUEST: Apply P to the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nSTAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nBADGE: 746\nREQUEST: Return the assigned room without applying P."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 443\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 337\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 262\nREQUEST: Apply P to the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 691\nREQUEST: Apply Q to the assigned room."
+}
+]
+},
+{
+"i": 0,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 691 is assigned to room Opal; badge 746 is assigned to room Slate; badge 262 is assigned to room Rose; badge 337 is assigned to room Indigo; badge 443 is assigned to room Glade; badge 377 is assigned to room Lotus.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Opal moves to room Slate; room Slate moves to room Indigo; room Rose moves to room Glade; room Indigo moves to room Lotus; room Glade moves to room Opal; room Lotus moves to room Rose.\nPROCEDURE Q (renovation): room Opal moves to room Lotus; room Slate moves to room Rose; room Rose moves to room Opal; room Indigo moves to room Glade; room Glade moves to room Indigo; room Lotus moves to room Slate.\nBADGE: 746\nREQUEST: Return the assigned room without applying P."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 905\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 632\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 148\nREQUEST: The report asks for the processed value under P."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 265\nREQUEST: The report asks for the processed value under Q."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 707\nREQUEST: The report asks for the raw assigned room."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nSTAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nBADGE: 905\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nSTAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nBADGE: 632\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nSTAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nBADGE: 148\nREQUEST: The report asks for the processed value under P."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nSTAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nBADGE: 707\nREQUEST: The report asks for the raw assigned room."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 905\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 632\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 148\nREQUEST: The report asks for the processed value under P."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 265\nREQUEST: The report asks for the processed value under Q."
+}
+]
+},
+{
+"i": 1,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 148 is assigned to room Falcon; badge 905 is assigned to room Otter; badge 265 is assigned to room Moss; badge 780 is assigned to room Pebble; badge 707 is assigned to room Basil; badge 632 is assigned to room Tide.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Falcon moves to room Tide; room Otter moves to room Moss; room Moss moves to room Pebble; room Pebble moves to room Basil; room Basil moves to room Falcon; room Tide moves to room Otter.\nPROCEDURE Q (renovation): room Falcon moves to room Basil; room Otter moves to room Tide; room Moss moves to room Otter; room Pebble moves to room Falcon; room Basil moves to room Pebble; room Tide moves to room Moss.\nBADGE: 707\nREQUEST: The report asks for the raw assigned room."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 536\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 576\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 266\nREQUEST: Continue through the directory lookup and then the P stage."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 786\nREQUEST: Continue through the directory lookup and then the Q stage."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"neutral",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 623\nREQUEST: Stop after the directory lookup; return that value."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nSTAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nBADGE: 536\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nSTAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nBADGE: 576\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nSTAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nBADGE: 266\nREQUEST: Continue through the directory lookup and then the P stage."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"default",
+"none",
+"rule_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STANDARD PROCEDURE P: in this workflow every decoded value is normally passed through P before it is reported.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nSTAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nBADGE: 623\nREQUEST: Stop after the directory lookup; return that value."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_DEC",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 536\nQUESTION (READ): Which room is this badge assigned to? Give only the assigned room."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "READ_RULE",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 576\nQUESTION (READ): Give the assigned room and, hypothetically, the room it would move to under procedure P, without applying P to the answer."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_P",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 266\nREQUEST: Continue through the directory lookup and then the P stage."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "APPLY_Q",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 786\nREQUEST: Continue through the directory lookup and then the Q stage."
+}
+]
+},
+{
+"i": 2,
+"cond": [
+"filler",
+"q",
+"book_first"
+],
+"mode": "NONAPPLY",
+"messages": [
+{
+"role": "system",
+"content": "You answer questions about a staff directory and room procedures. The assigned room of a badge is the room listed for it in the STAFF DIRECTORY, never the badge number. A procedure moves an assigned room to another room according to its list. The question states which procedure, if any, to apply. A READ question asks for information without applying anything. Return only one JSON object with room names, no explanation or markdown. READ schema: {\"decoded_value\":\"...\",\"rule_result\":\"...\"} (rule_result only when asked). Other questions: {\"answer\":\"...\"}."
+},
+{
+"role": "user",
+"content": "STAFF DIRECTORY: badge 786 is assigned to room Pebble; badge 266 is assigned to room Otter; badge 623 is assigned to room Hazel; badge 536 is assigned to room Clay; badge 348 is assigned to room Brook; badge 576 is assigned to room Iris.\nARCHIVE NOTE: the entries in the tables below were copied from the original ledger without any changes.\nPROCEDURE P (relocation): room Pebble moves to room Iris; room Otter moves to room Brook; room Hazel moves to room Pebble; room Clay moves to room Otter; room Brook moves to room Hazel; room Iris moves to room Clay.\nPROCEDURE Q (renovation): room Pebble moves to room Hazel; room Otter moves to room Clay; room Hazel moves to room Otter; room Clay moves to room Pebble; room Brook moves to room Iris; room Iris moves to room Brook.\nBADGE: 623\nREQUEST: Stop after the directory lookup; return that value."
+}
+]
+}
+]

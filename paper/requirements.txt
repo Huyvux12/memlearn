@@ -1,0 +1,6 @@
+# CPU-only paper analysis and document generation; no model runtime required.
+matplotlib>=3.7,<4
+Pillow>=10
+reportlab>=4,<6
+pypdf>=4,<8
+pytest>=8,<9

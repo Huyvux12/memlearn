@@ -1,0 +1,526 @@
+{
+ "name": "round4",
+ "parallel": 5,
+ "budget_seconds": 2400,
+ "models": [
+  "Qwen/Qwen3-4B-Instruct-2507",
+  "Qwen/Qwen3-8B",
+  "microsoft/Phi-3.5-mini-instruct",
+  "allenai/OLMo-2-1124-7B-Instruct",
+  "ibm-granite/granite-3.3-8b-instruct",
+  "Qwen/Qwen3-14B"
+ ],
+ "stages": [
+  {
+   "label": "probe_qwen3_14b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4c_phi35_mini",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_qwen3_14b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_bf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "order": "book_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_rf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "order": "rule_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_codes_rf_qwen3_4b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "codes",
+    "order": "rule_first",
+    "data_seed": 17,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_qwen3_14b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-14B",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_bf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "order": "book_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_nl_rf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "order": "rule_first",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "e4_codes_rf_qwen3_8b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "codes",
+    "order": "rule_first",
+    "data_seed": 17,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_qwen3_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_qwen3_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_gate_mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_gate",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_qwen3_4b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_qwen3_4b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_qwen3_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_qwen3_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_phi35_mini",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_phi35_mini",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_olmo2_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_olmo2_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "allenai/OLMo-2-1124-7B-Instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_probe_granite33_8b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "allow_any_arch": true
+   }
+  },
+  {
+   "label": "nl_shelf_mech_granite33_8b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "ibm-granite/granite-3.3-8b-instruct",
+    "style": "nl_shelf",
+    "data_seed": 53,
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   }
+  }
+ ],
+ "plan": "docs/ROUND4_PLAN.md"
+}

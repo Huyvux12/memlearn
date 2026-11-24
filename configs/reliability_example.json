@@ -1,0 +1,5 @@
+{
+  "reliability_repeats": 3,
+  "temperature": 0.7,
+  "budget_seconds": 5400
+}

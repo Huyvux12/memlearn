@@ -1,0 +1,632 @@
+{
+ "frozen": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_qwen3_4b"
+  },
+  "Qwen3-1.7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_qwen3_1p7b"
+  },
+  "Qwen2.5-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_qwen25_3b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_phi35_mini"
+  }
+ },
+ "mech": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_qwen3_4b"
+  },
+  "Qwen3-1.7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_qwen3_1p7b"
+  },
+  "Qwen2.5-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_qwen25_3b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_phi35_mini"
+  }
+ },
+ "e2": {
+  "zip": "reproduce_all/results_reproduce_all.zip",
+  "kind": "mech",
+  "label": "e2_qwen3_4b"
+ },
+ "adaptation": [
+  {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "prefixes": [
+    "full",
+    "bf_s",
+    "both_s",
+    "bfhi_s",
+    "lr1e3_s",
+    "q1l_s",
+    "phi_s"
+   ]
+  }
+ ],
+ "e4": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_qwen3_4b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_phi35_mini"
+  }
+ },
+ "generation": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "gen_qwen3_4b"
+  },
+  "Qwen3-1.7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "gen_qwen3_1p7b"
+  },
+  "Qwen2.5-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "gen_qwen25_3b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "gen_phi35_mini"
+  }
+ },
+ "nl_probe": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_qwen3_4b"
+  },
+  "Qwen3-1.7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_qwen3_1p7b"
+  },
+  "Qwen2.5-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_qwen25_3b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_phi35_mini"
+  }
+ },
+ "nl_mech": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_mech_qwen3_4b"
+  },
+  "Qwen3-1.7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_mech_qwen3_1p7b"
+  },
+  "Qwen2.5-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_mech_qwen25_3b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_mech_phi35_mini"
+  }
+ },
+ "scale_probe": {
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "q8b_probe"
+  }
+ },
+ "scale_mech": {
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "q8b_mech"
+  }
+ },
+ "framing": {
+  "zip": "reproduce_all/results_reproduce_all.zip",
+  "kind": "probe",
+  "label": "filler_phi35_mini"
+ },
+ "e4_circuit": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_qwen3_4b"
+  },
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_qwen3_8b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_phi35_mini"
+  }
+ },
+ "e4_format": {
+  "Qwen3-4B|codes|book_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_qwen3_4b"
+  },
+  "Qwen3-4B|codes|rule_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_codes_rf_qwen3_4b"
+  },
+  "Qwen3-4B|nl|book_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_nl_bf_qwen3_4b"
+  },
+  "Qwen3-4B|nl|rule_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_nl_rf_qwen3_4b"
+  },
+  "Qwen3-8B|codes|book_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_qwen3_8b"
+  },
+  "Qwen3-8B|codes|rule_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_codes_rf_qwen3_8b"
+  },
+  "Qwen3-8B|nl|book_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_nl_bf_qwen3_8b"
+  },
+  "Qwen3-8B|nl|rule_first": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4_nl_rf_qwen3_8b"
+  }
+ },
+ "families_probe": {
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_granite33_8b"
+  },
+  "Qwen3-14B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_qwen3_14b"
+  }
+ },
+ "families_mech": {
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_granite33_8b"
+  },
+  "Qwen3-14B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_qwen3_14b"
+  }
+ },
+ "families_nl": {
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_granite33_8b"
+  },
+  "Qwen3-14B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_qwen3_14b"
+  }
+ },
+ "nl_gate_probe": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_gate_probe_qwen3_4b"
+  },
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_gate_probe_qwen3_8b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_gate_probe_phi35_mini"
+  },
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_gate_probe_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_gate_probe_granite33_8b"
+  }
+ },
+ "nl_gate_mech": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_gate_mech_qwen3_4b"
+  },
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_gate_mech_qwen3_8b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_gate_mech_phi35_mini"
+  },
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_gate_mech_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_gate_mech_granite33_8b"
+  }
+ },
+ "nl_shelf_probe": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_shelf_probe_qwen3_4b"
+  },
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_shelf_probe_qwen3_8b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_shelf_probe_phi35_mini"
+  },
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_shelf_probe_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_shelf_probe_granite33_8b"
+  }
+ },
+ "nl_shelf_mech": {
+  "Qwen3-4B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_shelf_mech_qwen3_4b"
+  },
+  "Qwen3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_shelf_mech_qwen3_8b"
+  },
+  "Phi-3.5-mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_shelf_mech_phi35_mini"
+  },
+  "OLMo-2-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_shelf_mech_olmo2_7b"
+  },
+  "Granite-3.3-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "nl_shelf_mech_granite33_8b"
+  }
+ },
+ "path": {
+  "codes_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_qwen3_4b"
+  },
+  "codes_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_qwen3_8b"
+  },
+  "codes_phi35_mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_phi35_mini"
+  },
+  "codes_mistral_7b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_mistral_7b"
+  },
+  "codes_gemma2_9b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_gemma2_9b"
+  },
+  "nl_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_nl_qwen3_4b"
+  },
+  "nl_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_nl_qwen3_8b"
+  },
+  "shelf_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_shelf_qwen3_4b"
+  },
+  "shelf_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_shelf_qwen3_8b"
+  }
+ },
+ "path_mass": {
+  "codes_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_qwen3_4b"
+  },
+  "codes_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_qwen3_8b"
+  },
+  "codes_phi35_mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_phi35_mini"
+  },
+  "codes_mistral_7b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_mistral_7b"
+  },
+  "codes_gemma2_9b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_gemma2_9b"
+  },
+  "nl_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_nl_qwen3_4b"
+  },
+  "nl_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_nl_qwen3_8b"
+  },
+  "shelf_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_shelf_qwen3_4b"
+  },
+  "shelf_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_shelf_qwen3_8b"
+  }
+ },
+ "families5_probe": {
+  "Gemma-2-9B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_gemma2_9b"
+  },
+  "Gemma-2-2B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_gemma2_2b"
+  },
+  "Mistral-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_mistral_7b"
+  }
+ },
+ "families5_mech": {
+  "Gemma-2-9B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_gemma2_9b"
+  },
+  "Gemma-2-2B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_gemma2_2b"
+  },
+  "Mistral-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_mistral_7b"
+  }
+ },
+ "families5_nl": {
+  "Gemma-2-9B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_gemma2_9b"
+  },
+  "Gemma-2-2B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_gemma2_2b"
+  },
+  "Mistral-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_mistral_7b"
+  }
+ },
+ "e4_circuit5": {
+  "Gemma-2-9B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_gemma2_9b"
+  },
+  "Mistral-7B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_mistral_7b"
+  }
+ },
+ "heads": {
+  "codes_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_qwen3_4b"
+  },
+  "codes_qwen3_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_qwen3_8b"
+  },
+  "codes_phi35_mini": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_phi35_mini"
+  },
+  "codes_mistral_7b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_mistral_7b"
+  },
+  "codes_gemma2_9b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_gemma2_9b"
+  },
+  "codes_llama31_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_codes_llama31_8b"
+  },
+  "nl_qwen3_4b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "heads_nl_qwen3_4b"
+  }
+ },
+ "path_llama": {
+  "codes_llama31_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "path",
+   "label": "path_codes_llama31_8b"
+  }
+ },
+ "path_llama_mass": {
+  "codes_llama31_8b": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "pathmass",
+   "label": "path_codes_llama31_8b"
+  }
+ },
+ "families6_probe": {
+  "Llama-3.1-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_llama31_8b"
+  },
+  "Llama-3.2-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "probe_llama32_3b"
+  }
+ },
+ "families6_mech": {
+  "Llama-3.1-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_llama31_8b"
+  },
+  "Llama-3.2-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "mech",
+   "label": "mech_llama32_3b"
+  }
+ },
+ "families6_nl": {
+  "Llama-3.1-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_llama31_8b"
+  },
+  "Llama-3.2-3B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "probe",
+   "label": "nl_probe_llama32_3b"
+  }
+ },
+ "e4_circuit6": {
+  "Llama-3.1-8B": {
+   "zip": "reproduce_all/results_reproduce_all.zip",
+   "kind": "e4",
+   "label": "e4c_llama31_8b"
+  }
+ }
+}

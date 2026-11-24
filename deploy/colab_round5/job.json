@@ -1,0 +1,282 @@
+{
+ "name": "round5",
+ "parallel": 5,
+ "vram_budget_gb": 84,
+ "budget_seconds": 2400,
+ "models": [
+  "Qwen/Qwen3-4B-Instruct-2507",
+  "Qwen/Qwen3-8B",
+  "google/gemma-2-2b-it",
+  "google/gemma-2-9b-it",
+  "microsoft/Phi-3.5-mini-instruct",
+  "mistralai/Mistral-7B-Instruct-v0.3"
+ ],
+ "stages": [
+  {
+   "label": "path_codes_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_codes_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_codes_mistral_7b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "style": "codes",
+    "path_layer": 14,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_codes_phi35_mini",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "microsoft/Phi-3.5-mini-instruct",
+    "style": "codes",
+    "path_layer": 12,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_codes_gemma2_9b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "style": "codes",
+    "path_layer": 16,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 34
+  },
+  {
+   "label": "path_nl_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_nl_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "path_shelf_qwen3_4b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "style": "nl_shelf",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 12
+  },
+  {
+   "label": "path_shelf_qwen3_8b",
+   "module": "memlearn_attention.mech_path",
+   "preset": "mech_path",
+   "overrides": {
+    "model": "Qwen/Qwen3-8B",
+    "style": "nl_shelf",
+    "path_layer": 16,
+    "allow_any_arch": true
+   },
+   "budget_seconds": 3600,
+   "vram_gb": 28
+  },
+  {
+   "label": "probe_gemma2_2b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "probe_gemma2_9b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "mech_gemma2_2b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "mech_gemma2_9b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "nl_probe_gemma2_2b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-2b-it",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 10
+  },
+  {
+   "label": "nl_probe_gemma2_9b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 30
+  },
+  {
+   "label": "e4c_gemma2_9b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "google/gemma-2-9b-it",
+    "allow_any_arch": true,
+    "dtype": "bfloat16"
+   },
+   "vram_gb": 34
+  },
+  {
+   "label": "probe_mistral_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "mech_mistral_7b",
+   "module": "memlearn_attention.mech_v2",
+   "preset": "mech_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "variants": [
+     "M0",
+     "M1",
+     "M2",
+     "M3",
+     "M4",
+     "M5"
+    ],
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "nl_probe_mistral_7b",
+   "module": "memlearn_attention.probe_v2",
+   "preset": "probe_v2",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "style": "nl",
+    "data_seed": 41,
+    "allow_any_arch": true
+   },
+   "vram_gb": 24
+  },
+  {
+   "label": "e4c_mistral_7b",
+   "module": "memlearn_attention.mech_e4",
+   "preset": "mech_e4",
+   "overrides": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "allow_any_arch": true
+   },
+   "vram_gb": 28
+  }
+ ],
+ "plan": "docs/ROUND5_PLAN.md"
+}
